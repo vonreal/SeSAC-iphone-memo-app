@@ -15,6 +15,8 @@
 		76EFCDBF28C1ED2A00E7B6AD /* WalkThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFCDBE28C1ED2A00E7B6AD /* WalkThroughView.swift */; };
 		76EFCDC128C1ED3900E7B6AD /* WalkThroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFCDC028C1ED3900E7B6AD /* WalkThroughViewController.swift */; };
 		76EFCDC428C1ED9500E7B6AD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 76EFCDC328C1ED9500E7B6AD /* SnapKit */; };
+		76EFCDCC28C2372F00E7B6AD /* MemoListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFCDCB28C2372F00E7B6AD /* MemoListView.swift */; };
+		76EFCDCE28C2373900E7B6AD /* MemoListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFCDCD28C2373900E7B6AD /* MemoListViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +29,8 @@
 		76EFCDBC28C1EC2700E7B6AD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		76EFCDBE28C1ED2A00E7B6AD /* WalkThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThroughView.swift; sourceTree = "<group>"; };
 		76EFCDC028C1ED3900E7B6AD /* WalkThroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThroughViewController.swift; sourceTree = "<group>"; };
+		76EFCDCB28C2372F00E7B6AD /* MemoListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListView.swift; sourceTree = "<group>"; };
+		76EFCDCD28C2373900E7B6AD /* MemoListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +87,7 @@
 			children = (
 				76EFCDBA28C1EC1C00E7B6AD /* BaseView.swift */,
 				76EFCDBE28C1ED2A00E7B6AD /* WalkThroughView.swift */,
+				76EFCDCB28C2372F00E7B6AD /* MemoListView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -92,6 +97,7 @@
 			children = (
 				76EFCDBC28C1EC2700E7B6AD /* BaseViewController.swift */,
 				76EFCDC028C1ED3900E7B6AD /* WalkThroughViewController.swift */,
+				76EFCDCD28C2373900E7B6AD /* MemoListViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -171,10 +177,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76EFCDCE28C2373900E7B6AD /* MemoListViewController.swift in Sources */,
 				76EFCDBF28C1ED2A00E7B6AD /* WalkThroughView.swift in Sources */,
 				76EFCDBB28C1EC1C00E7B6AD /* BaseView.swift in Sources */,
 				76EFCDBD28C1EC2700E7B6AD /* BaseViewController.swift in Sources */,
 				76EFCDC128C1ED3900E7B6AD /* WalkThroughViewController.swift in Sources */,
+				76EFCDCC28C2372F00E7B6AD /* MemoListView.swift in Sources */,
 				76EFCDA428C1E00E00E7B6AD /* AppDelegate.swift in Sources */,
 				76EFCDA628C1E00E00E7B6AD /* SceneDelegate.swift in Sources */,
 			);

@@ -20,5 +20,11 @@ class WalkThroughViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        mainView.confirmButton.addTarget(self, action: #selector(confirmButtonClicked), for: .touchUpInside)
+    }
+    
+    @objc func confirmButtonClicked() {
+        UserDefaults.standard.set(true, forKey: "visited")
+        self.dismiss(animated: false)
     }
 }

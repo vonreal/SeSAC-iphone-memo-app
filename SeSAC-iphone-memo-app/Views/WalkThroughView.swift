@@ -49,7 +49,7 @@ class WalkThroughView: BaseView {
     }()
     
     override func makeConfigures() {
-        self.backgroundColor = .clear
+        self.backgroundColor = UIColor(white: 0, alpha: 0.4)
         [popupView].forEach { self.addSubview($0) }
         
         [welcomLabel, confirmButton].forEach { popupView.addSubview($0) }
