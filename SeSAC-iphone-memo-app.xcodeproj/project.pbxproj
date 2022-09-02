@@ -10,6 +10,11 @@
 		76EFCDA428C1E00E00E7B6AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFCDA328C1E00E00E7B6AD /* AppDelegate.swift */; };
 		76EFCDA628C1E00E00E7B6AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFCDA528C1E00E00E7B6AD /* SceneDelegate.swift */; };
 		76EFCDAD28C1E00F00E7B6AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76EFCDAC28C1E00F00E7B6AD /* Assets.xcassets */; };
+		76EFCDBB28C1EC1C00E7B6AD /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFCDBA28C1EC1C00E7B6AD /* BaseView.swift */; };
+		76EFCDBD28C1EC2700E7B6AD /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFCDBC28C1EC2700E7B6AD /* BaseViewController.swift */; };
+		76EFCDBF28C1ED2A00E7B6AD /* WalkThroughView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFCDBE28C1ED2A00E7B6AD /* WalkThroughView.swift */; };
+		76EFCDC128C1ED3900E7B6AD /* WalkThroughViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFCDC028C1ED3900E7B6AD /* WalkThroughViewController.swift */; };
+		76EFCDC428C1ED9500E7B6AD /* SnapKit in Frameworks */ = {isa = PBXBuildFile; productRef = 76EFCDC328C1ED9500E7B6AD /* SnapKit */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -18,6 +23,10 @@
 		76EFCDA528C1E00E00E7B6AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		76EFCDAC28C1E00F00E7B6AD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		76EFCDB128C1E00F00E7B6AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		76EFCDBA28C1EC1C00E7B6AD /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
+		76EFCDBC28C1EC2700E7B6AD /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		76EFCDBE28C1ED2A00E7B6AD /* WalkThroughView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThroughView.swift; sourceTree = "<group>"; };
+		76EFCDC028C1ED3900E7B6AD /* WalkThroughViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalkThroughViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -25,6 +34,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76EFCDC428C1ED9500E7B6AD /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -54,6 +64,8 @@
 				76EFCDA328C1E00E00E7B6AD /* AppDelegate.swift */,
 				76EFCDA528C1E00E00E7B6AD /* SceneDelegate.swift */,
 				76EFCDB728C1E0F600E7B6AD /* Resources */,
+				76EFCDB928C1EC0000E7B6AD /* ViewControllers */,
+				76EFCDB828C1EBFA00E7B6AD /* Views */,
 			);
 			path = "SeSAC-iphone-memo-app";
 			sourceTree = "<group>";
@@ -64,6 +76,24 @@
 				76EFCDAC28C1E00F00E7B6AD /* Assets.xcassets */,
 			);
 			path = Resources;
+			sourceTree = "<group>";
+		};
+		76EFCDB828C1EBFA00E7B6AD /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				76EFCDBA28C1EC1C00E7B6AD /* BaseView.swift */,
+				76EFCDBE28C1ED2A00E7B6AD /* WalkThroughView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		76EFCDB928C1EC0000E7B6AD /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				76EFCDBC28C1EC2700E7B6AD /* BaseViewController.swift */,
+				76EFCDC028C1ED3900E7B6AD /* WalkThroughViewController.swift */,
+			);
+			path = ViewControllers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -82,6 +112,9 @@
 			dependencies = (
 			);
 			name = "SeSAC-iphone-memo-app";
+			packageProductDependencies = (
+				76EFCDC328C1ED9500E7B6AD /* SnapKit */,
+			);
 			productName = "SeSAC-iphone-memo-app";
 			productReference = 76EFCDA028C1E00E00E7B6AD /* SeSAC-iphone-memo-app.app */;
 			productType = "com.apple.product-type.application";
@@ -110,6 +143,9 @@
 				Base,
 			);
 			mainGroup = 76EFCD9728C1E00E00E7B6AD;
+			packageReferences = (
+				76EFCDC228C1ED9500E7B6AD /* XCRemoteSwiftPackageReference "SnapKit" */,
+			);
 			productRefGroup = 76EFCDA128C1E00E00E7B6AD /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -135,6 +171,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76EFCDBF28C1ED2A00E7B6AD /* WalkThroughView.swift in Sources */,
+				76EFCDBB28C1EC1C00E7B6AD /* BaseView.swift in Sources */,
+				76EFCDBD28C1EC2700E7B6AD /* BaseViewController.swift in Sources */,
+				76EFCDC128C1ED3900E7B6AD /* WalkThroughViewController.swift in Sources */,
 				76EFCDA428C1E00E00E7B6AD /* AppDelegate.swift in Sources */,
 				76EFCDA628C1E00E00E7B6AD /* SceneDelegate.swift in Sources */,
 			);
@@ -269,7 +309,6 @@
 				INFOPLIST_FILE = "SeSAC-iphone-memo-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -298,7 +337,6 @@
 				INFOPLIST_FILE = "SeSAC-iphone-memo-app/Info.plist";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
-				INFOPLIST_KEY_UIMainStoryboardFile = Main;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
@@ -337,6 +375,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		76EFCDC228C1ED9500E7B6AD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.0.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		76EFCDC328C1ED9500E7B6AD /* SnapKit */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76EFCDC228C1ED9500E7B6AD /* XCRemoteSwiftPackageReference "SnapKit" */;
+			productName = SnapKit;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 76EFCD9828C1E00E00E7B6AD /* Project object */;
 }
