@@ -12,4 +12,5 @@ enum CustomColor {
     static let foregroundColor = UIColor(named: "ForegroundColor")
     static let fontColor = UIColor(named: "FontColor")
     static let pointColor = UIColor(named: "PointColor")
+    static let redPointColor = UIColor(named: "RedPointColor")
 }

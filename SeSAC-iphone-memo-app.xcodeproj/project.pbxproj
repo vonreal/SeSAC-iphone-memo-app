@@ -7,11 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76DF706528C3B400002FF980 /* UesrMemoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF706428C3B400002FF980 /* UesrMemoList.swift */; };
+		76DF706728C3B522002FF980 /* UserMemoListRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF706628C3B522002FF980 /* UserMemoListRepositoryType.swift */; };
+		76DF706A28C3CA1C002FF980 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF706928C3CA1C002FF980 /* UILabel+Extension.swift */; };
 		76E3BC5028C3402F00987640 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76E3BC4F28C3402F00987640 /* Storyboard.storyboard */; };
 		76E3BC5428C344D100987640 /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3BC5328C344D100987640 /* MemoListTableViewCell.swift */; };
 		76E3BC5628C3577500987640 /* MemoListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3BC5528C3577500987640 /* MemoListHeaderView.swift */; };
 		76E3BC5828C35A3800987640 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3BC5728C35A3800987640 /* CustomColor.swift */; };
 		76E3BC5A28C360F900987640 /* DefaultAssets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3BC5928C360F900987640 /* DefaultAssets.swift */; };
+		76E3BC5D28C38AFE00987640 /* WriteMemoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3BC5C28C38AFE00987640 /* WriteMemoViewController.swift */; };
+		76E3BC5F28C38B0800987640 /* WriteMemoVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3BC5E28C38B0800987640 /* WriteMemoVIew.swift */; };
+		76E3BC6228C3B0EE00987640 /* Realm in Frameworks */ = {isa = PBXBuildFile; productRef = 76E3BC6128C3B0EE00987640 /* Realm */; };
+		76E3BC6428C3B0EE00987640 /* RealmSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 76E3BC6328C3B0EE00987640 /* RealmSwift */; };
 		76EFCDA428C1E00E00E7B6AD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFCDA328C1E00E00E7B6AD /* AppDelegate.swift */; };
 		76EFCDA628C1E00E00E7B6AD /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76EFCDA528C1E00E00E7B6AD /* SceneDelegate.swift */; };
 		76EFCDAD28C1E00F00E7B6AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76EFCDAC28C1E00F00E7B6AD /* Assets.xcassets */; };
@@ -25,11 +32,16 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76DF706428C3B400002FF980 /* UesrMemoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UesrMemoList.swift; sourceTree = "<group>"; };
+		76DF706628C3B522002FF980 /* UserMemoListRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMemoListRepositoryType.swift; sourceTree = "<group>"; };
+		76DF706928C3CA1C002FF980 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
 		76E3BC4F28C3402F00987640 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		76E3BC5328C344D100987640 /* MemoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewCell.swift; sourceTree = "<group>"; };
 		76E3BC5528C3577500987640 /* MemoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListHeaderView.swift; sourceTree = "<group>"; };
 		76E3BC5728C35A3800987640 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
 		76E3BC5928C360F900987640 /* DefaultAssets.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultAssets.swift; sourceTree = "<group>"; };
+		76E3BC5C28C38AFE00987640 /* WriteMemoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteMemoViewController.swift; sourceTree = "<group>"; };
+		76E3BC5E28C38B0800987640 /* WriteMemoVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WriteMemoVIew.swift; sourceTree = "<group>"; };
 		76EFCDA028C1E00E00E7B6AD /* SeSAC-iphone-memo-app.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "SeSAC-iphone-memo-app.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		76EFCDA328C1E00E00E7B6AD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		76EFCDA528C1E00E00E7B6AD /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -48,6 +60,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76E3BC6428C3B0EE00987640 /* RealmSwift in Frameworks */,
+				76E3BC6228C3B0EE00987640 /* Realm in Frameworks */,
 				76EFCDC428C1ED9500E7B6AD /* SnapKit in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -55,9 +69,18 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		76DF706828C3CA0E002FF980 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				76DF706928C3CA1C002FF980 /* UILabel+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		76E3BC5128C344B400987640 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				76DF706828C3CA0E002FF980 /* Extension */,
 				76E3BC5B28C37BF700987640 /* Realm */,
 				76E3BC5228C344BF00987640 /* Cell */,
 				76E3BC5728C35A3800987640 /* CustomColor.swift */,
@@ -78,6 +101,8 @@
 		76E3BC5B28C37BF700987640 /* Realm */ = {
 			isa = PBXGroup;
 			children = (
+				76DF706428C3B400002FF980 /* UesrMemoList.swift */,
+				76DF706628C3B522002FF980 /* UserMemoListRepositoryType.swift */,
 			);
 			path = Realm;
 			sourceTree = "<group>";
@@ -127,6 +152,7 @@
 				76EFCDBA28C1EC1C00E7B6AD /* BaseView.swift */,
 				76EFCDBE28C1ED2A00E7B6AD /* WalkThroughView.swift */,
 				76EFCDCB28C2372F00E7B6AD /* MemoListView.swift */,
+				76E3BC5E28C38B0800987640 /* WriteMemoVIew.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -137,6 +163,7 @@
 				76EFCDBC28C1EC2700E7B6AD /* BaseViewController.swift */,
 				76EFCDC028C1ED3900E7B6AD /* WalkThroughViewController.swift */,
 				76EFCDCD28C2373900E7B6AD /* MemoListViewController.swift */,
+				76E3BC5C28C38AFE00987640 /* WriteMemoViewController.swift */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -159,6 +186,8 @@
 			name = "SeSAC-iphone-memo-app";
 			packageProductDependencies = (
 				76EFCDC328C1ED9500E7B6AD /* SnapKit */,
+				76E3BC6128C3B0EE00987640 /* Realm */,
+				76E3BC6328C3B0EE00987640 /* RealmSwift */,
 			);
 			productName = "SeSAC-iphone-memo-app";
 			productReference = 76EFCDA028C1E00E00E7B6AD /* SeSAC-iphone-memo-app.app */;
@@ -190,6 +219,7 @@
 			mainGroup = 76EFCD9728C1E00E00E7B6AD;
 			packageReferences = (
 				76EFCDC228C1ED9500E7B6AD /* XCRemoteSwiftPackageReference "SnapKit" */,
+				76E3BC6028C3B0EE00987640 /* XCRemoteSwiftPackageReference "realm-swift" */,
 			);
 			productRefGroup = 76EFCDA128C1E00E00E7B6AD /* Products */;
 			projectDirPath = "";
@@ -217,17 +247,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76DF706A28C3CA1C002FF980 /* UILabel+Extension.swift in Sources */,
 				76EFCDCE28C2373900E7B6AD /* MemoListViewController.swift in Sources */,
 				76E3BC5428C344D100987640 /* MemoListTableViewCell.swift in Sources */,
 				76E3BC5A28C360F900987640 /* DefaultAssets.swift in Sources */,
 				76E3BC5828C35A3800987640 /* CustomColor.swift in Sources */,
+				76E3BC5F28C38B0800987640 /* WriteMemoVIew.swift in Sources */,
 				76EFCDBF28C1ED2A00E7B6AD /* WalkThroughView.swift in Sources */,
 				76E3BC5628C3577500987640 /* MemoListHeaderView.swift in Sources */,
 				76EFCDBB28C1EC1C00E7B6AD /* BaseView.swift in Sources */,
 				76EFCDBD28C1EC2700E7B6AD /* BaseViewController.swift in Sources */,
+				76DF706528C3B400002FF980 /* UesrMemoList.swift in Sources */,
 				76EFCDC128C1ED3900E7B6AD /* WalkThroughViewController.swift in Sources */,
 				76EFCDCC28C2372F00E7B6AD /* MemoListView.swift in Sources */,
+				76DF706728C3B522002FF980 /* UserMemoListRepositoryType.swift in Sources */,
 				76EFCDA428C1E00E00E7B6AD /* AppDelegate.swift in Sources */,
+				76E3BC5D28C38AFE00987640 /* WriteMemoViewController.swift in Sources */,
 				76EFCDA628C1E00E00E7B6AD /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -431,6 +466,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		76E3BC6028C3B0EE00987640 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/realm/realm-swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 10.0.0;
+			};
+		};
 		76EFCDC228C1ED9500E7B6AD /* XCRemoteSwiftPackageReference "SnapKit" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/SnapKit/SnapKit.git";
@@ -442,6 +485,16 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		76E3BC6128C3B0EE00987640 /* Realm */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76E3BC6028C3B0EE00987640 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = Realm;
+		};
+		76E3BC6328C3B0EE00987640 /* RealmSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76E3BC6028C3B0EE00987640 /* XCRemoteSwiftPackageReference "realm-swift" */;
+			productName = RealmSwift;
+		};
 		76EFCDC328C1ED9500E7B6AD /* SnapKit */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 76EFCDC228C1ED9500E7B6AD /* XCRemoteSwiftPackageReference "SnapKit" */;

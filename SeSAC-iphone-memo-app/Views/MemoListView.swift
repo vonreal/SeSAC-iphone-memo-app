@@ -12,12 +12,7 @@ import SnapKit
 class MemoListView: BaseView {
     
     let menuToolBar: UIToolbar = {
-        let barButton = UIBarButtonItem()
-        barButton.image = DefaultAssets.addButtonImage
-        barButton.tintColor = CustomColor.pointColor
-        let flexibleSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: MemoListView.self, action: nil)
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 100))
-        toolBar.setItems([flexibleSpace, barButton], animated: false)
         return toolBar
     }()
     
@@ -42,7 +37,7 @@ class MemoListView: BaseView {
         }
         
         memoListTableView.snp.makeConstraints { make in
-            make.top.leading.trailing.equalTo(self)
+            make.top.leading.trailing.equalTo(self.safeAreaLayoutGuide)
             make.bottom.equalTo(menuToolBar.snp.top)
         }
     }

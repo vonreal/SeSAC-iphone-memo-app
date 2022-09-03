@@ -11,24 +11,23 @@ class MemoListTableViewCell: UITableViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "테스트"
+        label.text = "제목 없음"
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
     
     let dateLabel: UILabel = {
         let label = UILabel()
-        label.text = "월요일"
         label.textColor = .lightGray
-        label.font = .systemFont(ofSize: 14)
+        label.font = .systemFont(ofSize: 13)
         return label
     }()
     
     let contentLabel: UILabel = {
         let label = UILabel()
-        label.text = "배추 2포기, 고등어, 사탕4개 배추 2포기, 고등어, 사탕4개 배추 2포기, 고등어, 사탕4개배추 2포기, 고등어, 사탕4개"
+        label.text = "추가 텍스트 없음"
         label.textColor = .lightGray
-        label.font = .systemFont(ofSize: 14)
+        label.font = .systemFont(ofSize: 13)
         return label
     }()
     
