@@ -13,7 +13,7 @@ class WalkThroughView: BaseView {
 
     let popupView: UIView = {
         let view = UIView()
-        view.backgroundColor = .darkGray
+        view.backgroundColor = CustomColor.backgroundColor
         view.layer.cornerRadius = 20
         return view
     }()
@@ -29,7 +29,7 @@ class WalkThroughView: BaseView {
         """
         label.numberOfLines = 0
         label.font = .systemFont(ofSize: 17, weight: .heavy)
-        label.textColor = .white
+        label.textColor = CustomColor.fontColor
         
         let textStyle = NSMutableParagraphStyle()
         textStyle.lineSpacing = 4
@@ -41,7 +41,7 @@ class WalkThroughView: BaseView {
     
     let confirmButton: UIButton = {
         let button = UIButton()
-        button.backgroundColor = .systemOrange
+        button.backgroundColor = CustomColor.pointColor
         button.layer.cornerRadius = 10
         let attributedText = NSAttributedString(string: "확인", attributes: [.font: UIFont.systemFont(ofSize: 17, weight: .bold), .foregroundColor: UIColor.white])
         button.setAttributedTitle(attributedText, for: .normal)
