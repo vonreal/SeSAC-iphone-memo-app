@@ -26,6 +26,7 @@ class MemoListViewController: BaseViewController {
     }
     
     var search = false
+    var searchText = ""
     
     override func loadView() {
         super.loadView()
@@ -54,10 +55,6 @@ class MemoListViewController: BaseViewController {
         mainView.memoListTableView.reloadData()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        print(#function)
-    }
-    
     func setNavigation() {
         navigationController?.navigationBar.prefersLargeTitles = true
         navigationController?.navigationBar.scrollEdgeAppearance = UINavigationBarAppearance()
@@ -68,6 +65,7 @@ class MemoListViewController: BaseViewController {
         navigationItem.searchController?.searchBar.placeholder = "검색"
         navigationItem.searchController?.searchBar.tintColor = CustomColor.pointColor
         navigationItem.searchController?.searchBar.setValue("취소", forKey: "cancelButtonText")
+        navigationItem.searchController?.obscuresBackgroundDuringPresentation = false
     }
     
     func registerTableView() {
@@ -134,9 +132,9 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MemoListTableViewCell
         
         let task = search ? searchTasks[indexPath.row] : tasks[indexPath.row]
-        
+    
         if let title = task.title {
-            cell.titleLabel.text = title
+               cell.titleLabel.text = title
         } else {
             cell.titleLabel.text = "제목 없음"
         }
@@ -147,6 +145,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
             cell.contentLabel.text = "추가 텍스트 없음"
         }
         
+        // MARK: - 시간
         let format = DateFormatter()
         format.dateFormat = "yyyy. MM. dd a HH:mm"
         format.locale = Locale(identifier: "ko_KR")
@@ -177,9 +176,14 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         let pin = UIContextualAction(style: .normal, title: "고정") { action, view, completionHandler in
             self.repository.updatePine(target: task)
             self.mainView.memoListTableView.reloadData()
+            self.tasks = self.repository.fetchRealm()
         }
         pin.backgroundColor = CustomColor.pointColor
-        pin.image = DefaultAssets.truePinImage
+        if task.pined {
+            pin.image = DefaultAssets.falsePinImage
+        } else {
+            pin.image = DefaultAssets.truePinImage
+        }
 
         return UISwipeActionsConfiguration(actions: [pin])
     }
@@ -187,8 +191,10 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         let delete = UIContextualAction(style: .normal, title: "삭제") { action, view, completionHandelr in
             let target = self.tasks[indexPath.row]
-            self.repository.deleteData(target: target)
-            self.mainView.memoListTableView.reloadData()
+            self.alertMessage(title: "메모 삭제", message: "정말 메모를 삭제하시겠습니까?", cancelTitle: "아니오", confirmTitle: "삭제하기") {
+                self.repository.deleteData(target: target)
+                self.mainView.memoListTableView.reloadData()
+            }
         }
         
         delete.backgroundColor = CustomColor.redPointColor
@@ -202,13 +208,21 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
 // click할때 나오는 것 presentSearch -> willpresent -> didPresent
 // cancel -> willdismiss -> diddismiss
 extension MemoListViewController: UISearchControllerDelegate {
-    func presentSearchController(_ searchController: UISearchController) {
+    
+    func willPresentSearchController(_ searchController: UISearchController) {
         search = true
         mainView.memoListTableView.reloadData()
     }
-    func didDismissSearchController(_ searchController: UISearchController) {
+    
+    func willDismissSearchController(_ searchController: UISearchController) {
         search = false
+        searchTasks = repository.filter(text: "")
         mainView.memoListTableView.reloadData()
+        searchText = ""
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        mainView.memoListTableView.keyboardDismissMode = .onDrag
     }
 }
 
@@ -216,6 +230,7 @@ extension MemoListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {
             searchTasks = repository.filter(text: searchText)
+            self.searchText = searchText
         }
     }
 }

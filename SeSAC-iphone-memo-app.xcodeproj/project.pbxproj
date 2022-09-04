@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		76D9B70228C4852C00F4C710 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D9B70128C4852C00F4C710 /* String+Extension.swift */; };
 		76DF706528C3B400002FF980 /* UesrMemoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF706428C3B400002FF980 /* UesrMemoList.swift */; };
 		76DF706728C3B522002FF980 /* UserMemoListRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF706628C3B522002FF980 /* UserMemoListRepositoryType.swift */; };
 		76DF706A28C3CA1C002FF980 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF706928C3CA1C002FF980 /* UILabel+Extension.swift */; };
@@ -32,6 +33,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		76D9B70128C4852C00F4C710 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		76DF706428C3B400002FF980 /* UesrMemoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UesrMemoList.swift; sourceTree = "<group>"; };
 		76DF706628C3B522002FF980 /* UserMemoListRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMemoListRepositoryType.swift; sourceTree = "<group>"; };
 		76DF706928C3CA1C002FF980 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				76DF706928C3CA1C002FF980 /* UILabel+Extension.swift */,
+				76D9B70128C4852C00F4C710 /* String+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -259,6 +262,7 @@
 				76EFCDBD28C1EC2700E7B6AD /* BaseViewController.swift in Sources */,
 				76DF706528C3B400002FF980 /* UesrMemoList.swift in Sources */,
 				76EFCDC128C1ED3900E7B6AD /* WalkThroughViewController.swift in Sources */,
+				76D9B70228C4852C00F4C710 /* String+Extension.swift in Sources */,
 				76EFCDCC28C2372F00E7B6AD /* MemoListView.swift in Sources */,
 				76DF706728C3B522002FF980 /* UserMemoListRepositoryType.swift in Sources */,
 				76EFCDA428C1E00E00E7B6AD /* AppDelegate.swift in Sources */,

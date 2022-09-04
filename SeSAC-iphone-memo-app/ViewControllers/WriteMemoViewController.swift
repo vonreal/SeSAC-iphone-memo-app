@@ -25,6 +25,19 @@ class WriteMemoViewController: BaseViewController {
         
         setNavigation()
         updateData()
+        registerTextView()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if !isEdit {
+            mainView.memoTextView.becomeFirstResponder()
+        }
+    }
+    
+    func registerTextView() {
+        mainView.memoTextView.delegate = self
     }
     
     func setNavigation() {
@@ -32,6 +45,12 @@ class WriteMemoViewController: BaseViewController {
         navigationController?.navigationBar.tintColor = CustomColor.pointColor
         navigationController?.navigationBar.topItem?.backButtonTitle = "메모"
         
+        if !isEdit {
+            setNavigationItems()
+        }
+    }
+    
+    func setNavigationItems() {
         let menuBtn = UIButton(type: .custom)
         menuBtn.frame = CGRect(x: 0, y: 0, width: 40, height: 0)
         menuBtn.setImage(DefaultAssets.shareButtonImage, for: .normal)
@@ -52,12 +71,17 @@ class WriteMemoViewController: BaseViewController {
     }
     
     @objc func shareButtonClicked() {
-        
+        if let allText = mainView.memoTextView.text, !allText.isEmpty {
+            let activityController = UIActivityViewController(activityItems: [allText], applicationActivities: nil)
+            present(activityController, animated: true, completion: nil)
+        } else {
+            alertMessage(title: "공유할 메모가 없습니다.", message: "메모를 작성해주시고 다시 시도해주세요!", cancelTitle: "확인", confirmTitle: nil) {}
+        }
     }
     
     @objc func finishButtonClicked() {
         
-        if let allText = mainView.memoTextView.text {
+        if let allText = mainView.memoTextView.text, !allText.isEmpty {
             var title: String? = nil
             var content: String? = nil
             let splitText = allText.split(separator: "\n", maxSplits: 1, omittingEmptySubsequences: true)
@@ -79,6 +103,17 @@ class WriteMemoViewController: BaseViewController {
                     self.navigationController?.popViewController(animated: true)
                 }
             }
+        } else {
+            if isEdit {
+                repository.deleteData(target: task!)
+            }
+            self.navigationController?.popViewController(animated: true)
         }
+    }
+}
+
+extension WriteMemoViewController: UITextViewDelegate {
+    func textViewDidBeginEditing(_ textView: UITextView) {
+        setNavigationItems()
     }
 }
