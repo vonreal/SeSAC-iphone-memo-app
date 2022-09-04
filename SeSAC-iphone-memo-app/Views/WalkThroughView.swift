@@ -13,7 +13,7 @@ class WalkThroughView: BaseView {
 
     let popupView: UIView = {
         let view = UIView()
-        view.backgroundColor = CustomColor.backgroundColor
+        view.backgroundColor = CustomColor.foregroundColor
         view.layer.cornerRadius = 20
         return view
     }()
