@@ -128,6 +128,8 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         } else {
             if search {
                 title = "\(searchTasks.count)개 찾음"
+            } else if tasks.isEmpty {
+                title = ""
             }
         }
         view.title.text = title
@@ -146,7 +148,7 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
         let numberFormat = NumberFormatter()
         numberFormat.numberStyle = .decimal
         navigationItem.title =  "\(numberFormat.string(for: tasks.count + pinedTasksCount)!)개의 메모"
-        if tasks.count == 0 { return 0 }
+        if pinedTasksCount == 0, tasks.count == 0 { return 0 }
         return pinedTasksCount > 0 && !search ? 2 : 1
     }
     
@@ -263,6 +265,9 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
                 
                 self.repository.deleteData(target: task)
                 self.fetchRealm()
+                if self.pinedTasksCount > 0 {
+                    self.pinedTasksCount = self.pinedTasks.count
+                }
                 self.mainView.memoListTableView.reloadData()
             }
         }
