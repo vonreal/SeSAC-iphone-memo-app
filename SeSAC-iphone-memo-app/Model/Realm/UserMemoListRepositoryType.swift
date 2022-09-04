@@ -26,7 +26,7 @@ final class UserMemoListRepository: UserMemoListRepositoryType {
     }
     
     func fetchRealm() -> Results<UserMemoList> {
-        return localRealm.objects(UserMemoList.self).sorted(byKeyPath: "writeDate", ascending: false)
+        return localRealm.objects(UserMemoList.self).sorted(byKeyPath: "writeDate", ascending: false).filter("pined == false")
     }
     
     func save(task: UserMemoList, _ completionHandler: @escaping () -> () ) {
@@ -55,10 +55,10 @@ final class UserMemoListRepository: UserMemoListRepositoryType {
         }
     }
     
-    func updatePine(target: UserMemoList) {
+    func updatePine(handler: @escaping () -> ()) {
         do {
             try localRealm.write {
-                target.pined.toggle()
+                handler()
             }
         } catch {
             print(error)
@@ -77,5 +77,9 @@ final class UserMemoListRepository: UserMemoListRepositoryType {
     
     func filter(text: String) -> Results<UserMemoList> {
         return localRealm.objects(UserMemoList.self).filter("title CONTAINS '\(text)' OR content CONTAINS '\(text)'")
+    }
+    
+    func filterByPined() -> Results<UserMemoList> {
+        return localRealm.objects(UserMemoList.self).sorted(byKeyPath: "writeDate", ascending: false).filter("pined == true")
     }
 }

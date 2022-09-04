@@ -92,7 +92,9 @@ class WriteMemoViewController: BaseViewController {
             if splitText.count == 2 {
                 content = String(splitText[1])
             }
-            let editTask = UserMemoList(title: title, writeDate: Date(), content: content, pined: false)
+            
+            let pined = isEdit ? task!.pined : false
+            let editTask = UserMemoList(title: title, writeDate: Date(), content: content, pined: pined)
             
             if isEdit {
                 repository.update(task: task!, editTask: editTask) {

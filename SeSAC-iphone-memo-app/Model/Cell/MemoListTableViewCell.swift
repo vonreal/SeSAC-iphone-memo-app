@@ -11,7 +11,6 @@ class MemoListTableViewCell: UITableViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
-        label.text = "제목 없음"
         label.font = .boldSystemFont(ofSize: 16)
         return label
     }()
@@ -25,7 +24,6 @@ class MemoListTableViewCell: UITableViewCell {
     
     let contentLabel: UILabel = {
         let label = UILabel()
-        label.text = "추가 텍스트 없음"
         label.textColor = .lightGray
         label.font = .systemFont(ofSize: 13)
         return label
@@ -55,16 +53,5 @@ class MemoListTableViewCell: UITableViewCell {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    override func awakeFromNib() {
-//        super.awakeFromNib()
-//        // Initialization code
-//    }
-//
-//    override func setSelected(_ selected: Bool, animated: Bool) {
-//        super.setSelected(selected, animated: animated)
-//
-//        // Configure the view for the selected state
-//    }
 
 }

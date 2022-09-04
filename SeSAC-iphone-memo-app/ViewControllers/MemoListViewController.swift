@@ -24,6 +24,14 @@ class MemoListViewController: BaseViewController {
             mainView.memoListTableView.reloadData()
         }
     }
+//    var pinedTasks = [UserMemoList]()
+    var pinedTasks: Results<UserMemoList>! {
+        didSet {
+            pinedTasksCount = pinedTasks.count
+            mainView.memoListTableView.reloadData()
+        }
+    }
+    var pinedTasksCount = 0
     
     var search = false
     var searchText = ""
@@ -48,6 +56,8 @@ class MemoListViewController: BaseViewController {
         registerTableView()
         setToolBar()
         fetchRealm()
+        searchTasks = repository.filter(text: "")
+        fetchFilter()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -90,7 +100,14 @@ class MemoListViewController: BaseViewController {
     
     func fetchRealm() {
         tasks = repository.fetchRealm()
-        searchTasks = repository.filter(text: "")
+    }
+    
+    func fetchFilter() {
+//        for task in repository.filterByPined() {
+//            pinedTasks.append(task)
+//        }
+        pinedTasks = repository.filterByPined()
+        pinedTasksCount = pinedTasks.count
     }
 
 }
@@ -104,57 +121,81 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = tableView.dequeueReusableHeaderFooterView(withIdentifier:
                     "header") as! MemoListHeaderView
-//        if section == 0 {
-//            view.title.text = "고정된 메모"
-//        }
-        if search {
-            view.title.text = "\(searchTasks.count)개 찾음"
+        
+        var title = "메모"
+        if pinedTasksCount > 0, section == 0, !search {
+            title = "고정된 메모"
         } else {
-            view.title.text = "메모"
+            if search {
+                title = "\(searchTasks.count)개 찾음"
+            }
         }
+        view.title.text = title
         return view
     }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        navigationItem.title =  "\(tasks.count)개의 메모"
-        if search {
-            return searchTasks.count
+        if pinedTasksCount > 0, section == 0, !search {
+            return pinedTasks.count
+        } else {
+            return search ? searchTasks.count : tasks.count
         }
-        return tasks.count
     }
     
     func numberOfSections(in tableView: UITableView) -> Int {
-//        return 2
-        return 1
+        let numberFormat = NumberFormatter()
+        numberFormat.numberStyle = .decimal
+        navigationItem.title =  "\(numberFormat.string(for: tasks.count + pinedTasksCount)!)개의 메모"
+        if tasks.count == 0 { return 0 }
+        return pinedTasksCount > 0 && !search ? 2 : 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MemoListTableViewCell
         
-        let task = search ? searchTasks[indexPath.row] : tasks[indexPath.row]
-    
+        var task = UserMemoList()
+        if pinedTasksCount > 0, indexPath.section == 0, !search {
+            task = pinedTasks[indexPath.row]
+        } else {
+            task = search ? searchTasks[indexPath.row] : tasks[indexPath.row]
+        }
         if let title = task.title {
-               cell.titleLabel.text = title
+            let attributtedString = NSMutableAttributedString(string: title)
+            attributtedString.addAttribute(.foregroundColor, value: UIColor.orange, range: (title as NSString).range(of: searchText))
+            cell.titleLabel.attributedText = attributtedString
         } else {
             cell.titleLabel.text = "제목 없음"
         }
         
         if let content = task.content {
-            cell.contentLabel.text = content.trimmingCharacters(in: .controlCharacters)
+            let text = content.trimmingCharacters(in: .controlCharacters)
+            let attributtedString = NSMutableAttributedString(string: text)
+            attributtedString.addAttribute(.foregroundColor, value: UIColor.orange, range: (text as NSString).range(of: searchText))
+            cell.contentLabel.attributedText = attributtedString
         } else {
             cell.contentLabel.text = "추가 텍스트 없음"
         }
         
         // MARK: - 시간
         let format = DateFormatter()
-        format.dateFormat = "yyyy. MM. dd a HH:mm"
         format.locale = Locale(identifier: "ko_KR")
+        let calendar = Calendar(identifier: .iso8601)
+        if calendar.isDateInToday(task.writeDate) {
+            format.dateFormat = "a HH:mm"
+        } else {
+            let interval = Double(7)
+            let todayYear = Calendar.current.dateComponents([.year, .month, .day], from: Date())
+            let dateComponents = DateComponents(year: todayYear.year, month: todayYear.month, day: todayYear.day, hour: 00)
+            let startDay = Date(timeInterval: -(86400 * (interval - 1)), since: calendar.date(from: dateComponents)!)
+            if startDay <= task.writeDate {
+                format.dateFormat = "EEEE"
+            } else {
+                format.dateFormat = "yyyy. MM. dd a HH:mm"
+            }
+        }
         cell.dateLabel.text = format.string(from: task.writeDate)
         
-        cell.titleLabel.addCharacterSpacing()
-        cell.contentLabel.addCharacterSpacing()
         cell.dateLabel.addCharacterSpacing()
-        
         return cell
     }
     
@@ -163,36 +204,65 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        var task = UserMemoList()
+        if pinedTasksCount > 0, indexPath.section == 0, !search {
+            task = pinedTasks[indexPath.row]
+        } else {
+            task = search ? searchTasks[indexPath.row] : tasks[indexPath.row]
+        }
+        
         let viewController = WriteMemoViewController()
         viewController.isEdit = true
-        viewController.task = tasks[indexPath.row]
+        viewController.task = task
         navigationController?.pushViewController(viewController, animated: true)
     }
 
     func tableView(_ tableView: UITableView, leadingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
-        let task = tasks[indexPath.row]
+        var task = UserMemoList()
+        if pinedTasksCount > 0, indexPath.section == 0, !search {
+            task = pinedTasks[indexPath.row]
+        } else {
+            task = search ? searchTasks[indexPath.row] : tasks[indexPath.row]
+        }
         
         let pin = UIContextualAction(style: .normal, title: "고정") { action, view, completionHandler in
-            self.repository.updatePine(target: task)
-            self.mainView.memoListTableView.reloadData()
-            self.tasks = self.repository.fetchRealm()
+            self.repository.updatePine {
+                if task.pined {
+                    self.pinedTasksCount -= 1
+                    task.pined.toggle()
+                } else {
+                    if self.pinedTasksCount == 5 {
+                        self.alertMessage(title: "고정 메모 초과", message: "고정 메모는 5개까지 가능합니다.", cancelTitle: "확인", confirmTitle: nil) {}
+                        return
+                    } else {
+                        self.pinedTasksCount += 1
+                        task.pined.toggle()
+                    }
+                }
+            }
+            self.fetchRealm()
         }
         pin.backgroundColor = CustomColor.pointColor
-        if task.pined {
-            pin.image = DefaultAssets.falsePinImage
-        } else {
-            pin.image = DefaultAssets.truePinImage
-        }
+        pin.image = task.pined ? DefaultAssets.falsePinImage : DefaultAssets.truePinImage
 
         return UISwipeActionsConfiguration(actions: [pin])
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        var task = UserMemoList()
+        if pinedTasksCount > 0, indexPath.section == 0, !search {
+            task = pinedTasks[indexPath.row]
+        } else {
+            task = search ? searchTasks[indexPath.row] : tasks[indexPath.row]
+        }
+        
         let delete = UIContextualAction(style: .normal, title: "삭제") { action, view, completionHandelr in
-            let target = self.tasks[indexPath.row]
             self.alertMessage(title: "메모 삭제", message: "정말 메모를 삭제하시겠습니까?", cancelTitle: "아니오", confirmTitle: "삭제하기") {
-                self.repository.deleteData(target: target)
+                
+                self.repository.deleteData(target: task)
+                self.fetchRealm()
                 self.mainView.memoListTableView.reloadData()
             }
         }
@@ -204,9 +274,6 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     }
 }
 
-
-// click할때 나오는 것 presentSearch -> willpresent -> didPresent
-// cancel -> willdismiss -> diddismiss
 extension MemoListViewController: UISearchControllerDelegate {
     
     func willPresentSearchController(_ searchController: UISearchController) {
