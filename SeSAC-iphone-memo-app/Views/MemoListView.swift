@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class MemoListView: BaseView {
+final class MemoListView: BaseView {
     
     let menuToolBar: UIToolbar = {
         let toolBar = UIToolbar(frame: CGRect(x: 0, y: 0, width: 100, height: 100))

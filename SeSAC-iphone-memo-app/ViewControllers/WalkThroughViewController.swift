@@ -7,9 +7,9 @@
 
 import UIKit
 
-class WalkThroughViewController: UIViewController {
+final class WalkThroughViewController: BaseViewController {
 
-    let mainView = WalkThroughView()
+    private let mainView = WalkThroughView()
     
     override func loadView() {
         super.loadView()

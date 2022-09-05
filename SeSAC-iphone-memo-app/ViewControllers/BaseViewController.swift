@@ -13,7 +13,6 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
     }
     
-    
     func alertMessage(title: String, message: String, cancelTitle: String, confirmTitle: String?, completion: @escaping ()->()) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancel = UIAlertAction(title: cancelTitle, style: .default)

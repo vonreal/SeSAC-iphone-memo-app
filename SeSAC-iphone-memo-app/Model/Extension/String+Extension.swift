@@ -9,23 +9,10 @@ import UIKit
 
 extension String {
 
-    func highlightText(
-        _ text: String,
-        with color: UIColor,
-        caseInsensitivie: Bool = false,
-        font: UIFont = .preferredFont(forTextStyle: .body)) -> NSAttributedString
-    {
-        let attrString = NSMutableAttributedString(string: self)
-        let range = (self as NSString).range(of: text, options: caseInsensitivie ? .caseInsensitive : [])
-        attrString.addAttribute(
-            .foregroundColor,
-            value: color,
-            range: range)
-        attrString.addAttribute(
-            .font,
-            value: font,
-            range: NSRange(location: 0, length: attrString.length))
-        return attrString
+    func highlightText(pointColor: UIColor, targetText: String) -> NSMutableAttributedString {
+        let attributtedString = NSMutableAttributedString(string: self)
+        attributtedString.addAttribute(.foregroundColor, value: pointColor, range: (self as NSString).range(of: targetText))
+        return attributtedString
     }
 
 }

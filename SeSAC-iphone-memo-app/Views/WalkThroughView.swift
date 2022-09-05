@@ -9,7 +9,7 @@ import UIKit
 
 import SnapKit
 
-class WalkThroughView: BaseView {
+final class WalkThroughView: BaseView {
 
     let popupView: UIView = {
         let view = UIView()

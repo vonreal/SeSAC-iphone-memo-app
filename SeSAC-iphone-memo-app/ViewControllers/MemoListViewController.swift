@@ -8,33 +8,32 @@
 import UIKit
 
 import RealmSwift
-import Network
 
-class MemoListViewController: BaseViewController {
+final class MemoListViewController: BaseViewController {
 
-    let mainView = MemoListView()
-    let repository = UserMemoListRepository.repository
-    var tasks: Results<UserMemoList>! {
+    private let mainView = MemoListView()
+    private let repository = UserMemoListRepository.repository
+    private var tasks: Results<UserMemoList>! {
         didSet {
             mainView.memoListTableView.reloadData()
         }
     }
-    var searchTasks: Results<UserMemoList>! {
+    private var searchTasks: Results<UserMemoList>! {
         didSet {
             mainView.memoListTableView.reloadData()
         }
     }
-//    var pinedTasks = [UserMemoList]()
-    var pinedTasks: Results<UserMemoList>! {
+    
+    private var pinedTasks: Results<UserMemoList>! {
         didSet {
             pinedTasksCount = pinedTasks.count
             mainView.memoListTableView.reloadData()
         }
     }
-    var pinedTasksCount = 0
+    private var pinedTasksCount = 0
     
-    var search = false
-    var searchText = ""
+    private var search = false
+    private var searchText = ""
     
     override func loadView() {
         super.loadView()
@@ -50,8 +49,7 @@ class MemoListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // MARK: 제출 시 삭제하기
-        repository.printFileLocation()
+//        repository.printFileLocation() // 날씨 변경 테스트 할 때 편하시도록
         setNavigation()
         registerTableView()
         setToolBar()
@@ -62,6 +60,7 @@ class MemoListViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+        
         mainView.memoListTableView.reloadData()
     }
     
@@ -103,9 +102,6 @@ class MemoListViewController: BaseViewController {
     }
     
     func fetchFilter() {
-//        for task in repository.filterByPined() {
-//            pinedTasks.append(task)
-//        }
         pinedTasks = repository.filterByPined()
         pinedTasksCount = pinedTasks.count
     }
@@ -154,50 +150,29 @@ extension MemoListViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cell") as! MemoListTableViewCell
-        
         var task = UserMemoList()
+        
         if pinedTasksCount > 0, indexPath.section == 0, !search {
             task = pinedTasks[indexPath.row]
         } else {
             task = search ? searchTasks[indexPath.row] : tasks[indexPath.row]
         }
+        
         if let title = task.title {
-            let attributtedString = NSMutableAttributedString(string: title)
-            attributtedString.addAttribute(.foregroundColor, value: UIColor.orange, range: (title as NSString).range(of: searchText))
-            cell.titleLabel.attributedText = attributtedString
+            cell.titleLabel.attributedText = title.highlightText(pointColor: CustomColor.pointColor!, targetText: searchText)
         } else {
             cell.titleLabel.text = "제목 없음"
         }
         
         if let content = task.content {
             let text = content.trimmingCharacters(in: .controlCharacters)
-            let attributtedString = NSMutableAttributedString(string: text)
-            attributtedString.addAttribute(.foregroundColor, value: UIColor.orange, range: (text as NSString).range(of: searchText))
-            cell.contentLabel.attributedText = attributtedString
+            cell.contentLabel.attributedText = text.highlightText(pointColor: CustomColor.pointColor!, targetText: searchText)
         } else {
             cell.contentLabel.text = "추가 텍스트 없음"
         }
         
-        // MARK: - 시간
-        let format = DateFormatter()
-        format.locale = Locale(identifier: "ko_KR")
-        let calendar = Calendar(identifier: .iso8601)
-        if calendar.isDateInToday(task.writeDate) {
-            format.dateFormat = "a HH:mm"
-        } else {
-            let interval = Double(7)
-            let todayYear = Calendar.current.dateComponents([.year, .month, .day], from: Date())
-            let dateComponents = DateComponents(year: todayYear.year, month: todayYear.month, day: todayYear.day, hour: 00)
-            let startDay = Date(timeInterval: -(86400 * (interval - 1)), since: calendar.date(from: dateComponents)!)
-            if startDay <= task.writeDate {
-                format.dateFormat = "EEEE"
-            } else {
-                format.dateFormat = "yyyy. MM. dd a HH:mm"
-            }
-        }
-        cell.dateLabel.text = format.string(from: task.writeDate)
+        cell.dateLabel.text = getDate(date: task.writeDate)
         
-        cell.dateLabel.addCharacterSpacing()
         return cell
     }
     

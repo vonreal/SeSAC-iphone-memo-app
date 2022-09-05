@@ -7,7 +7,10 @@
 
 import UIKit
 
-class MemoListHeaderView: UITableViewHeaderFooterView {
+import SnapKit
+
+final class MemoListHeaderView: UITableViewHeaderFooterView {
+    
     let title: UILabel = {
         let label = UILabel()
         label.text = "메모"
@@ -21,6 +24,7 @@ class MemoListHeaderView: UITableViewHeaderFooterView {
         configureContents()
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class WriteMemoVIew: BaseView {
+final class WriteMemoVIew: BaseView {
 
     let memoTextView: UITextView = {
         let textView = UITextView()

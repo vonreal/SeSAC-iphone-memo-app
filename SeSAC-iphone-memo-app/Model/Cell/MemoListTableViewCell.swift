@@ -7,7 +7,9 @@
 
 import UIKit
 
-class MemoListTableViewCell: UITableViewCell {
+import SnapKit
+
+final class MemoListTableViewCell: UITableViewCell {
     
     let titleLabel: UILabel = {
         let label = UILabel()
@@ -50,6 +52,7 @@ class MemoListTableViewCell: UITableViewCell {
         
     }
     
+    @available(*, unavailable)
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }

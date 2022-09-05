@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7652DD2C28C5B8AB0043859D /* getDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652DD2B28C5B8AB0043859D /* getDate.swift */; };
 		76D9B70228C4852C00F4C710 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D9B70128C4852C00F4C710 /* String+Extension.swift */; };
 		76DF706528C3B400002FF980 /* UesrMemoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF706428C3B400002FF980 /* UesrMemoList.swift */; };
 		76DF706728C3B522002FF980 /* UserMemoListRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF706628C3B522002FF980 /* UserMemoListRepositoryType.swift */; };
@@ -33,6 +34,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7652DD2B28C5B8AB0043859D /* getDate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = getDate.swift; sourceTree = "<group>"; };
 		76D9B70128C4852C00F4C710 /* String+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Extension.swift"; sourceTree = "<group>"; };
 		76DF706428C3B400002FF980 /* UesrMemoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UesrMemoList.swift; sourceTree = "<group>"; };
 		76DF706628C3B522002FF980 /* UserMemoListRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMemoListRepositoryType.swift; sourceTree = "<group>"; };
@@ -71,11 +73,28 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7652DD2928C5B2810043859D /* Design */ = {
+			isa = PBXGroup;
+			children = (
+				76E3BC5728C35A3800987640 /* CustomColor.swift */,
+				76E3BC5928C360F900987640 /* DefaultAssets.swift */,
+			);
+			path = Design;
+			sourceTree = "<group>";
+		};
+		7652DD2A28C5B8A30043859D /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				7652DD2B28C5B8AB0043859D /* getDate.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
 		76DF706828C3CA0E002FF980 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
-				76DF706928C3CA1C002FF980 /* UILabel+Extension.swift */,
 				76D9B70128C4852C00F4C710 /* String+Extension.swift */,
+				76DF706928C3CA1C002FF980 /* UILabel+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -83,11 +102,11 @@
 		76E3BC5128C344B400987640 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				7652DD2A28C5B8A30043859D /* Util */,
+				76E3BC5228C344BF00987640 /* Cell */,
+				7652DD2928C5B2810043859D /* Design */,
 				76DF706828C3CA0E002FF980 /* Extension */,
 				76E3BC5B28C37BF700987640 /* Realm */,
-				76E3BC5228C344BF00987640 /* Cell */,
-				76E3BC5728C35A3800987640 /* CustomColor.swift */,
-				76E3BC5928C360F900987640 /* DefaultAssets.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -95,8 +114,8 @@
 		76E3BC5228C344BF00987640 /* Cell */ = {
 			isa = PBXGroup;
 			children = (
-				76E3BC5328C344D100987640 /* MemoListTableViewCell.swift */,
 				76E3BC5528C3577500987640 /* MemoListHeaderView.swift */,
+				76E3BC5328C344D100987640 /* MemoListTableViewCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -153,8 +172,8 @@
 			isa = PBXGroup;
 			children = (
 				76EFCDBA28C1EC1C00E7B6AD /* BaseView.swift */,
-				76EFCDBE28C1ED2A00E7B6AD /* WalkThroughView.swift */,
 				76EFCDCB28C2372F00E7B6AD /* MemoListView.swift */,
+				76EFCDBE28C1ED2A00E7B6AD /* WalkThroughView.swift */,
 				76E3BC5E28C38B0800987640 /* WriteMemoVIew.swift */,
 			);
 			path = Views;
@@ -164,8 +183,8 @@
 			isa = PBXGroup;
 			children = (
 				76EFCDBC28C1EC2700E7B6AD /* BaseViewController.swift */,
-				76EFCDC028C1ED3900E7B6AD /* WalkThroughViewController.swift */,
 				76EFCDCD28C2373900E7B6AD /* MemoListViewController.swift */,
+				76EFCDC028C1ED3900E7B6AD /* WalkThroughViewController.swift */,
 				76E3BC5C28C38AFE00987640 /* WriteMemoViewController.swift */,
 			);
 			path = ViewControllers;
@@ -258,6 +277,7 @@
 				76E3BC5F28C38B0800987640 /* WriteMemoVIew.swift in Sources */,
 				76EFCDBF28C1ED2A00E7B6AD /* WalkThroughView.swift in Sources */,
 				76E3BC5628C3577500987640 /* MemoListHeaderView.swift in Sources */,
+				7652DD2C28C5B8AB0043859D /* getDate.swift in Sources */,
 				76EFCDBB28C1EC1C00E7B6AD /* BaseView.swift in Sources */,
 				76EFCDBD28C1EC2700E7B6AD /* BaseViewController.swift in Sources */,
 				76DF706528C3B400002FF980 /* UesrMemoList.swift in Sources */,

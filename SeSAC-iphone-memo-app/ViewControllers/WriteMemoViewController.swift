@@ -7,10 +7,10 @@
 
 import UIKit
 
-class WriteMemoViewController: BaseViewController {
+final class WriteMemoViewController: BaseViewController {
 
-    let mainView = WriteMemoVIew()
-    let repository = UserMemoListRepository.repository
+    private let mainView = WriteMemoVIew()
+    private let repository = UserMemoListRepository.repository
     var isEdit = false
     var task: UserMemoList?
     

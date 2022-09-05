@@ -11,7 +11,14 @@ import RealmSwift
 import UIKit
 
 protocol UserMemoListRepositoryType {
-    
+    func printFileLocation()
+    func fetchRealm() -> Results<UserMemoList>
+    func save(task: UserMemoList, _ completionHandler: @escaping () -> ())
+    func update(task: UserMemoList, editTask: UserMemoList, _ completionHandler: @escaping () -> ())
+    func updatePine(handler: @escaping () -> ())
+    func deleteData(target: UserMemoList)
+    func filter(text: String) -> Results<UserMemoList>
+    func filterByPined() -> Results<UserMemoList>
 }
 
 final class UserMemoListRepository: UserMemoListRepositoryType {
@@ -29,7 +36,7 @@ final class UserMemoListRepository: UserMemoListRepositoryType {
         return localRealm.objects(UserMemoList.self).sorted(byKeyPath: "writeDate", ascending: false).filter("pined == false")
     }
     
-    func save(task: UserMemoList, _ completionHandler: @escaping () -> () ) {
+    func save(task: UserMemoList, _ completionHandler: @escaping () -> ()) {
         do {
             try localRealm.write {
                 localRealm.add(task)
@@ -41,7 +48,7 @@ final class UserMemoListRepository: UserMemoListRepositoryType {
         }
     }
     
-    func update(task: UserMemoList, editTask: UserMemoList, _ completionHandler: @escaping () -> () ) {
+    func update(task: UserMemoList, editTask: UserMemoList, _ completionHandler: @escaping () -> ()) {
         do {
             try localRealm.write {
                 task.title = editTask.title
