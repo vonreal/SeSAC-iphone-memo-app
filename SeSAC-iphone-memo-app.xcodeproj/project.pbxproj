@@ -12,7 +12,6 @@
 		76DF706528C3B400002FF980 /* UesrMemoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF706428C3B400002FF980 /* UesrMemoList.swift */; };
 		76DF706728C3B522002FF980 /* UserMemoListRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF706628C3B522002FF980 /* UserMemoListRepositoryType.swift */; };
 		76DF706A28C3CA1C002FF980 /* UILabel+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF706928C3CA1C002FF980 /* UILabel+Extension.swift */; };
-		76E3BC5028C3402F00987640 /* Storyboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 76E3BC4F28C3402F00987640 /* Storyboard.storyboard */; };
 		76E3BC5428C344D100987640 /* MemoListTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3BC5328C344D100987640 /* MemoListTableViewCell.swift */; };
 		76E3BC5628C3577500987640 /* MemoListHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3BC5528C3577500987640 /* MemoListHeaderView.swift */; };
 		76E3BC5828C35A3800987640 /* CustomColor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76E3BC5728C35A3800987640 /* CustomColor.swift */; };
@@ -39,7 +38,6 @@
 		76DF706428C3B400002FF980 /* UesrMemoList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UesrMemoList.swift; sourceTree = "<group>"; };
 		76DF706628C3B522002FF980 /* UserMemoListRepositoryType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserMemoListRepositoryType.swift; sourceTree = "<group>"; };
 		76DF706928C3CA1C002FF980 /* UILabel+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+Extension.swift"; sourceTree = "<group>"; };
-		76E3BC4F28C3402F00987640 /* Storyboard.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Storyboard.storyboard; sourceTree = "<group>"; };
 		76E3BC5328C344D100987640 /* MemoListTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListTableViewCell.swift; sourceTree = "<group>"; };
 		76E3BC5528C3577500987640 /* MemoListHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemoListHeaderView.swift; sourceTree = "<group>"; };
 		76E3BC5728C35A3800987640 /* CustomColor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomColor.swift; sourceTree = "<group>"; };
@@ -149,7 +147,6 @@
 			isa = PBXGroup;
 			children = (
 				76EFCDB128C1E00F00E7B6AD /* Info.plist */,
-				76E3BC4F28C3402F00987640 /* Storyboard.storyboard */,
 				76EFCDA328C1E00E00E7B6AD /* AppDelegate.swift */,
 				76EFCDA528C1E00E00E7B6AD /* SceneDelegate.swift */,
 				76E3BC5128C344B400987640 /* Model */,
@@ -258,7 +255,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				76EFCDAD28C1E00F00E7B6AD /* Assets.xcassets in Resources */,
-				76E3BC5028C3402F00987640 /* Storyboard.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
