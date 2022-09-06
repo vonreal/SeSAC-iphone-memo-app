@@ -277,8 +277,9 @@ extension MemoListViewController: UISearchControllerDelegate {
 extension MemoListViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         if !searchText.isEmpty {
-            searchTasks = repository.filter(text: searchText)
-            self.searchText = searchText
+            let search = searchText.trimmingCharacters(in: .whitespacesAndNewlines)
+            searchTasks = repository.filter(text: search)
+            self.searchText = search
         }
     }
 }
