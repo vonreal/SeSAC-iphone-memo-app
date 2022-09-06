@@ -32,7 +32,7 @@ final class MemoListTableViewCell: UITableViewCell {
     }()
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: .default, reuseIdentifier: "cell")
+        super.init(style: .default, reuseIdentifier: reuseIdentifier)
         [titleLabel, dateLabel, contentLabel].forEach { self.addSubview($0) }
         titleLabel.snp.makeConstraints { make in
             make.leading.trailing.equalTo(self).inset(20)

@@ -17,12 +17,12 @@ class BaseViewController: UIViewController {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancel = UIAlertAction(title: cancelTitle, style: .default)
         if let confirmTitle = confirmTitle {
+            alert.addAction(cancel)
             let ok = UIAlertAction(title: confirmTitle, style: .destructive) { action in
                 completion()
             }
             alert.addAction(ok)
         }
-        alert.addAction(cancel)
         self.present(alert, animated: true)
     }
 }
