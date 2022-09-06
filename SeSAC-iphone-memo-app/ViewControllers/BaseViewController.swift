@@ -16,8 +16,8 @@ class BaseViewController: UIViewController {
     func alertMessage(title: String, message: String, cancelTitle: String, confirmTitle: String?, completion: @escaping ()->()) {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         let cancel = UIAlertAction(title: cancelTitle, style: .default)
+        alert.addAction(cancel)
         if let confirmTitle = confirmTitle {
-            alert.addAction(cancel)
             let ok = UIAlertAction(title: confirmTitle, style: .destructive) { action in
                 completion()
             }
