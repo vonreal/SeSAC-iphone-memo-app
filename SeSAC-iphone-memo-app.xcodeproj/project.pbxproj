@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		7652DD2C28C5B8AB0043859D /* getDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7652DD2B28C5B8AB0043859D /* getDate.swift */; };
+		76AC4C9729154B18001A0117 /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = 76AC4C9629154B18001A0117 /* IQKeyboardManagerSwift */; };
 		76D9B70228C4852C00F4C710 /* String+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D9B70128C4852C00F4C710 /* String+Extension.swift */; };
 		76DF706528C3B400002FF980 /* UesrMemoList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF706428C3B400002FF980 /* UesrMemoList.swift */; };
 		76DF706728C3B522002FF980 /* UserMemoListRepositoryType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76DF706628C3B522002FF980 /* UserMemoListRepositoryType.swift */; };
@@ -63,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				76E3BC6428C3B0EE00987640 /* RealmSwift in Frameworks */,
+				76AC4C9729154B18001A0117 /* IQKeyboardManagerSwift in Frameworks */,
 				76E3BC6228C3B0EE00987640 /* Realm in Frameworks */,
 				76EFCDC428C1ED9500E7B6AD /* SnapKit in Frameworks */,
 			);
@@ -207,6 +209,7 @@
 				76EFCDC328C1ED9500E7B6AD /* SnapKit */,
 				76E3BC6128C3B0EE00987640 /* Realm */,
 				76E3BC6328C3B0EE00987640 /* RealmSwift */,
+				76AC4C9629154B18001A0117 /* IQKeyboardManagerSwift */,
 			);
 			productName = "SeSAC-iphone-memo-app";
 			productReference = 76EFCDA028C1E00E00E7B6AD /* SeSAC-iphone-memo-app.app */;
@@ -239,6 +242,7 @@
 			packageReferences = (
 				76EFCDC228C1ED9500E7B6AD /* XCRemoteSwiftPackageReference "SnapKit" */,
 				76E3BC6028C3B0EE00987640 /* XCRemoteSwiftPackageReference "realm-swift" */,
+				76AC4C9529154B18001A0117 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
 			);
 			productRefGroup = 76EFCDA128C1E00E00E7B6AD /* Products */;
 			projectDirPath = "";
@@ -486,6 +490,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		76AC4C9529154B18001A0117 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
+			requirement = {
+				kind = exactVersion;
+				version = 6.5.10;
+			};
+		};
 		76E3BC6028C3B0EE00987640 /* XCRemoteSwiftPackageReference "realm-swift" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/realm/realm-swift.git";
@@ -505,6 +517,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		76AC4C9629154B18001A0117 /* IQKeyboardManagerSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 76AC4C9529154B18001A0117 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */;
+			productName = IQKeyboardManagerSwift;
+		};
 		76E3BC6128C3B0EE00987640 /* Realm */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 76E3BC6028C3B0EE00987640 /* XCRemoteSwiftPackageReference "realm-swift" */;

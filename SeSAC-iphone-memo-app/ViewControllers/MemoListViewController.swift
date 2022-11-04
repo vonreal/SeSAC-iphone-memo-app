@@ -49,7 +49,7 @@ final class MemoListViewController: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        repository.printFileLocation() // 날씨 변경 테스트 할 때 편하시도록
+//        repository.printFileLocation() // 날짜 변경 테스트 할 때 편하시도록
         setNavigation()
         registerTableView()
         setToolBar()
